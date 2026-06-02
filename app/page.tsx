@@ -1,4 +1,3 @@
-import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/hero/Hero";
 import ServicesIntro from "@/components/sections/services/ServicesIntro";
 import StrategicLocation from "@/components/sections/location/StrategicLocation";
@@ -8,13 +7,10 @@ import VisionMission from "@/components/sections/vision/VisionMission";
 import Testimonials from "@/components/sections/testimonials/Testimonials";
 import CTABanner from "@/components/sections/cta/CTABanner";
 import ContactSection from "@/components/sections/contact/ContactSection";
-import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden">
-      <Header />
-
       {/* 1. Hero */}
       <Hero />
 
@@ -39,9 +35,8 @@ export default function Home() {
       {/* 8. CTA Banner */}
       <CTABanner />
 
-      {/* 9. Contact / Map / Footer */}
+      {/* 9. Contact / Map */}
       <ContactSection />
-      <Footer />
     </main>
   );
 }
