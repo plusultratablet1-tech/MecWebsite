@@ -248,14 +248,14 @@
 }
 
 /* =========================================================
-   Project Gallery Reveal Animation
+   Project Gallery Scroll Reveal Animation
    Used by: components/sections/gallery/ProjectGallery.tsx
    ========================================================= */
 
 @keyframes galleryCardIn {
   0% {
     opacity: 0;
-    transform: translateY(45px) scale(0.98);
+    transform: translateY(55px) scale(0.98);
   }
 
   100% {
@@ -266,7 +266,7 @@
 
 @keyframes galleryImageZoomIn {
   0% {
-    transform: scale(1.12);
+    transform: scale(1.14);
   }
 
   100% {
@@ -274,7 +274,7 @@
   }
 }
 
-@keyframes galleryWipeReveal {
+@keyframes galleryWipeRevealUp {
   0% {
     transform: translateY(0);
   }
@@ -286,67 +286,87 @@
 
 .gallery-card {
   opacity: 0;
-  transform: translateY(45px) scale(0.98);
+  transform: translateY(55px) scale(0.98);
+  will-change: opacity, transform;
+}
+
+.gallery-image {
+  transform: scale(1.14);
+  will-change: transform;
+}
+
+.gallery-wipe {
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.gallery-section.is-visible .gallery-card {
   animation-name: galleryCardIn;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   animation-fill-mode: forwards;
 }
 
-.gallery-image {
-  transform: scale(1.12);
+.gallery-section.is-visible .gallery-image {
   animation-name: galleryImageZoomIn;
-  animation-duration: 1.4s;
+  animation-duration: 1.45s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   animation-fill-mode: forwards;
 }
 
-.gallery-wipe {
-  transform: translateY(0);
-  animation-name: galleryWipeReveal;
+.gallery-section.is-visible .gallery-wipe {
+  animation-name: galleryWipeRevealUp;
   animation-duration: 1.05s;
   animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
   animation-fill-mode: forwards;
 }
 
-.gallery-delay-1,
-.gallery-delay-1 .gallery-image,
-.gallery-delay-1 .gallery-wipe {
-  animation-delay: 0.1s;
+.gallery-section.is-visible .gallery-delay-1,
+.gallery-section.is-visible .gallery-delay-1 .gallery-image,
+.gallery-section.is-visible .gallery-delay-1 .gallery-wipe {
+  animation-delay: 0.08s;
 }
 
-.gallery-delay-2,
-.gallery-delay-2 .gallery-image,
-.gallery-delay-2 .gallery-wipe {
-  animation-delay: 0.22s;
+.gallery-section.is-visible .gallery-delay-2,
+.gallery-section.is-visible .gallery-delay-2 .gallery-image,
+.gallery-section.is-visible .gallery-delay-2 .gallery-wipe {
+  animation-delay: 0.18s;
 }
 
-.gallery-delay-3,
-.gallery-delay-3 .gallery-image,
-.gallery-delay-3 .gallery-wipe {
-  animation-delay: 0.34s;
+.gallery-section.is-visible .gallery-delay-3,
+.gallery-section.is-visible .gallery-delay-3 .gallery-image,
+.gallery-section.is-visible .gallery-delay-3 .gallery-wipe {
+  animation-delay: 0.28s;
 }
 
-.gallery-delay-4,
-.gallery-delay-4 .gallery-image,
-.gallery-delay-4 .gallery-wipe {
-  animation-delay: 0.46s;
+.gallery-section.is-visible .gallery-delay-4,
+.gallery-section.is-visible .gallery-delay-4 .gallery-image,
+.gallery-section.is-visible .gallery-delay-4 .gallery-wipe {
+  animation-delay: 0.38s;
 }
 
-.gallery-delay-5,
-.gallery-delay-5 .gallery-image,
-.gallery-delay-5 .gallery-wipe {
+.gallery-section.is-visible .gallery-delay-5,
+.gallery-section.is-visible .gallery-delay-5 .gallery-image,
+.gallery-section.is-visible .gallery-delay-5 .gallery-wipe {
+  animation-delay: 0.48s;
+}
+
+.gallery-section.is-visible .gallery-delay-6,
+.gallery-section.is-visible .gallery-delay-6 .gallery-image,
+.gallery-section.is-visible .gallery-delay-6 .gallery-wipe {
   animation-delay: 0.58s;
 }
 
-.gallery-delay-6,
-.gallery-delay-6 .gallery-image,
-.gallery-delay-6 .gallery-wipe {
-  animation-delay: 0.7s;
+.gallery-section.is-visible .gallery-delay-7,
+.gallery-section.is-visible .gallery-delay-7 .gallery-image,
+.gallery-section.is-visible .gallery-delay-7 .gallery-wipe {
+  animation-delay: 0.68s;
 }
 
-.gallery-delay-7,
-.gallery-delay-7 .gallery-image,
-.gallery-delay-7 .gallery-wipe {
-  animation-delay: 0.82s;
+/* =========================================================
+   Services / Utility
+   ========================================================= */
+
+.vertical-rl {
+  writing-mode: vertical-rl;
 }
