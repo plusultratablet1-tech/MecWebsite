@@ -62,7 +62,7 @@ export default function Header() {
       className={`fixed left-0 top-0 z-[999] w-full transition-all duration-500 ${
         isScrolled
           ? "bg-[#071126]/95 py-4 shadow-xl backdrop-blur-md"
-          : "bg-transparent py-6"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="mx-auto flex max-w-[1840px] items-center justify-between px-6 lg:px-10">
@@ -71,10 +71,10 @@ export default function Header() {
           <Image
             src="/images/mec-logo.png"
             alt="Manila Ecommerce Center Logo"
-            width={700}
-            height={240}
+            width={900}
+            height={300}
             priority
-            className="h-auto w-[190px] object-contain sm:w-[210px] md:w-[230px] lg:w-[250px]"
+            className="h-auto w-[220px] object-contain sm:w-[250px] md:w-[280px] lg:w-[310px]"
           />
         </Link>
 
