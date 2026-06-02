@@ -69,10 +69,10 @@ export default function Header() {
         {/* Logo */}
         <Link href="#home" className="flex items-center">
           <Image
-            src="/images/mec-logo (2).png"
+            src="/images/mec-logo%20(2).png"
             alt="Manila Ecommerce Center Logo"
-            width={900}
-            height={300}
+            width={1800}
+            height={640}
             priority
             className="h-auto w-[220px] object-contain sm:w-[250px] md:w-[280px] lg:w-[310px]"
           />
