@@ -1,89 +1,151 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Menu, X, Search } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { Menu, Search, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Service', href: '#service' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Pages', href: '#pages' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Contact', href: '#contact' },
+  const navItems = [
+    {
+      label: "Home",
+      href: "#home",
+    },
+    {
+      label: "What We Do",
+      href: "#service",
+    },
+    {
+      label: "Location",
+      href: "#location",
+    },
+    {
+      label: "Gallery",
+      href: "#projects",
+    },
+    {
+      label: "Why MEC",
+      href: "#why-choose-mec",
+    },
+    {
+      label: "Vision",
+      href: "#vision",
+    },
+    {
+      label: "Testimonials",
+      href: "#testimonials",
+    },
+    {
+      label: "Contact",
+      href: "#contact",
+    },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="fixed top-0 w-full z-50 bg-gradient-to-r from-orange-500 via-orange-400 to-red-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-10 h-10 bg-white rounded flex items-center justify-center font-bold text-orange-500">
-              B
-            </div>
-            <span className="text-white font-bold text-lg hidden sm:inline">Buildnox</span>
-          </Link>
+    <header
+      className={`fixed left-0 top-0 z-[999] w-full transition-all duration-500 ${
+        isScrolled
+          ? "bg-[#071126]/95 py-4 shadow-xl backdrop-blur-md"
+          : "bg-transparent py-6"
+      }`}
+    >
+      <div className="mx-auto flex max-w-[1840px] items-center justify-between px-6 lg:px-10">
+        {/* Logo */}
+        <Link href="#home" className="flex items-center">
+          <Image
+            src="/images/mec-logo.png"
+            alt="Manila Ecommerce Center Logo"
+            width={700}
+            height={240}
+            priority
+            className="h-auto w-[190px] object-contain sm:w-[210px] md:w-[230px] lg:w-[250px]"
+          />
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-white text-sm font-medium hover:text-orange-100 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Right side icons and CTA */}
-          <div className="flex items-center gap-4">
-            <button className="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
-              <Search className="w-5 h-5 text-white" />
-            </button>
-            <button className="hidden md:inline-block px-6 py-2 bg-white text-orange-500 font-semibold rounded hover:bg-orange-50 transition-colors">
-              Get Started
-            </button>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
+        {/* Desktop Nav */}
+        <nav className="hidden items-center gap-7 text-[15px] font-bold text-white lg:flex xl:gap-9">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="relative transition hover:text-[#c69208]"
             >
-              {isMenuOpen ? (
-                <X className="w-6 h-6 text-white" />
-              ) : (
-                <Menu className="w-6 h-6 text-white" />
-              )}
-            </button>
-          </div>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Right Actions */}
+        <div className="hidden items-center gap-6 lg:flex">
+          <button
+            type="button"
+            aria-label="Search"
+            className="grid h-12 w-12 place-items-center rounded-full border border-white/80 text-white transition hover:bg-white hover:text-[#c69208]"
+          >
+            <Search className="h-5 w-5" />
+          </button>
+
+          <Link
+            href="#contact"
+            className="rounded-full border border-white px-8 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] text-white transition hover:bg-white hover:text-[#c69208]"
+          >
+            Get Appointment
+          </Link>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden pb-4 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block px-4 py-2 text-white hover:bg-white/10 rounded"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <button className="w-full mx-4 px-4 py-2 bg-white text-orange-500 font-semibold rounded hover:bg-orange-50 transition-colors">
-              Get Started
-            </button>
-          </nav>
-        )}
+        {/* Mobile Menu Button */}
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="grid h-11 w-11 place-items-center border border-white/70 text-white lg:hidden"
+        >
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Nav */}
+      <div
+        className={`overflow-hidden bg-[#071126] transition-all duration-500 lg:hidden ${
+          isOpen ? "max-h-[520px] border-t border-white/10" : "max-h-0"
+        }`}
+      >
+        <nav className="flex flex-col px-6 py-5">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="border-b border-white/10 py-4 text-[15px] font-bold text-white transition hover:text-[#c69208]"
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          <Link
+            href="#contact"
+            onClick={() => setIsOpen(false)}
+            className="mt-5 inline-flex w-fit rounded-full border border-white px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] text-white transition hover:bg-white hover:text-[#c69208]"
+          >
+            Get Appointment
+          </Link>
+        </nav>
       </div>
     </header>
   );
