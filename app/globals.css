@@ -246,3 +246,107 @@
   opacity: 0;
   animation: textIn 4.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* =========================================================
+   Project Gallery Reveal Animation
+   Used by: components/sections/gallery/ProjectGallery.tsx
+   ========================================================= */
+
+@keyframes galleryCardIn {
+  0% {
+    opacity: 0;
+    transform: translateY(45px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes galleryImageZoomIn {
+  0% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes galleryWipeReveal {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-101%);
+  }
+}
+
+.gallery-card {
+  opacity: 0;
+  transform: translateY(45px) scale(0.98);
+  animation-name: galleryCardIn;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+.gallery-image {
+  transform: scale(1.12);
+  animation-name: galleryImageZoomIn;
+  animation-duration: 1.4s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+.gallery-wipe {
+  transform: translateY(0);
+  animation-name: galleryWipeReveal;
+  animation-duration: 1.05s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-fill-mode: forwards;
+}
+
+.gallery-delay-1,
+.gallery-delay-1 .gallery-image,
+.gallery-delay-1 .gallery-wipe {
+  animation-delay: 0.1s;
+}
+
+.gallery-delay-2,
+.gallery-delay-2 .gallery-image,
+.gallery-delay-2 .gallery-wipe {
+  animation-delay: 0.22s;
+}
+
+.gallery-delay-3,
+.gallery-delay-3 .gallery-image,
+.gallery-delay-3 .gallery-wipe {
+  animation-delay: 0.34s;
+}
+
+.gallery-delay-4,
+.gallery-delay-4 .gallery-image,
+.gallery-delay-4 .gallery-wipe {
+  animation-delay: 0.46s;
+}
+
+.gallery-delay-5,
+.gallery-delay-5 .gallery-image,
+.gallery-delay-5 .gallery-wipe {
+  animation-delay: 0.58s;
+}
+
+.gallery-delay-6,
+.gallery-delay-6 .gallery-image,
+.gallery-delay-6 .gallery-wipe {
+  animation-delay: 0.7s;
+}
+
+.gallery-delay-7,
+.gallery-delay-7 .gallery-image,
+.gallery-delay-7 .gallery-wipe {
+  animation-delay: 0.82s;
+}
