@@ -64,7 +64,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="max-w-[900px] animate-text-in text-[40px] font-extrabold uppercase leading-[1.16] tracking-tight text-white sm:text-[52px] lg:text-[68px] xl:text-[78px]">
+            <h1 className="max-w-[760px] animate-text-in text-[34px] font-extrabold uppercase leading-[1.16] tracking-tight text-white sm:text-[44px] lg:text-[55px]">
               Leading the Future
               <br />
               of Business.
@@ -74,16 +74,16 @@ export default function Hero() {
               for Success.
             </h1>
 
-            <p className="mt-9 max-w-[760px] animate-text-in-2 text-[18px] leading-[1.85] tracking-[0.03em] text-white/90 sm:text-[20px] lg:text-[21px]">
+            <p className="mt-8 max-w-[720px] animate-text-in-2 text-[17px] leading-[1.85] tracking-[0.03em] text-white/90 sm:text-[19px] lg:text-[20px]">
               A modern business and commercial hub in the heart of Manila,
               designed for companies, entrepreneurs, creators, and growth-driven
               enterprises ready to operate, connect, and scale.
             </p>
 
-            <div className="mt-12 flex animate-text-in-3 flex-col gap-4 sm:flex-row">
+            <div className="mt-10 flex animate-text-in-3 flex-col gap-4 sm:flex-row">
               <Link
                 href="#service"
-                className="inline-flex w-fit items-center gap-5 rounded-full border border-white px-10 py-5 text-[14px] font-extrabold uppercase tracking-[0.14em] text-white transition hover:bg-white hover:text-[#c69208]"
+                className="inline-flex w-fit items-center gap-5 rounded-full border border-white px-9 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-white transition hover:bg-white hover:text-[#c69208]"
               >
                 Explore MEC
                 <ArrowRight className="h-5 w-5" />
@@ -91,7 +91,7 @@ export default function Hero() {
 
               <Link
                 href="#contact"
-                className="inline-flex w-fit items-center gap-5 rounded-full bg-white px-10 py-5 text-[14px] font-extrabold uppercase tracking-[0.14em] text-[#c69208] transition hover:bg-[#071126] hover:text-white"
+                className="inline-flex w-fit items-center gap-5 rounded-full bg-white px-9 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#c69208] transition hover:bg-[#071126] hover:text-white"
               >
                 Send Inquiry
                 <ArrowRight className="h-5 w-5" />
