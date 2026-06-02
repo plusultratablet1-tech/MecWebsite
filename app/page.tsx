@@ -1,3 +1,4 @@
+import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/hero/Hero";
 import ServicesIntro from "@/components/sections/services/ServicesIntro";
 import StrategicLocation from "@/components/sections/location/StrategicLocation";
@@ -11,6 +12,9 @@ import ContactSection from "@/components/sections/contact/ContactSection";
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden">
+      {/* Navigation */}
+      <Header />
+
       {/* 1. Hero */}
       <Hero />
 
