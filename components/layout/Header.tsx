@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("#home");
 
   const navItems = [
     {
@@ -47,13 +48,41 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80);
+
+      const currentSection = navItems
+        .map((item) => {
+          const section = document.querySelector(item.href);
+
+          if (!section) return null;
+
+          const rect = section.getBoundingClientRect();
+
+          return {
+            href: item.href,
+            top: rect.top,
+            bottom: rect.bottom,
+          };
+        })
+        .filter(Boolean)
+        .find((section) => {
+          if (!section) return false;
+
+          return section.top <= 160 && section.bottom >= 160;
+        });
+
+      if (currentSection) {
+        setActiveSection(currentSection.href);
+      }
     };
 
     handleScroll();
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("hashchange", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("hashchange", handleScroll);
     };
   }, []);
 
@@ -80,15 +109,27 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-7 text-[15px] font-bold text-white lg:flex xl:gap-9">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="relative transition hover:text-[#c69208]"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href;
+
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`relative transition duration-300 hover:text-[#2596be] ${
+                  isActive ? "text-[#2596be]" : "text-white"
+                }`}
+              >
+                {item.label}
+
+                <span
+                  className={`absolute -bottom-2 left-0 h-[2px] bg-[#2596be] transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right Actions */}
@@ -96,14 +137,18 @@ export default function Header() {
           <button
             type="button"
             aria-label="Search"
-            className="grid h-12 w-12 place-items-center rounded-full border border-white/80 text-white transition hover:bg-white hover:text-[#c69208]"
+            className="grid h-12 w-12 place-items-center rounded-full border border-white/80 text-white transition duration-300 hover:border-[#2596be] hover:bg-[#2596be] hover:text-white"
           >
             <Search className="h-5 w-5" />
           </button>
 
           <Link
             href="#contact"
-            className="rounded-full border border-white px-8 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] text-white transition hover:bg-white hover:text-[#c69208]"
+            className={`rounded-full border px-8 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] transition duration-300 ${
+              activeSection === "#contact"
+                ? "border-[#2596be] bg-[#2596be] text-white"
+                : "border-white text-white hover:border-[#2596be] hover:bg-[#2596be] hover:text-white"
+            }`}
           >
             Get Appointment
           </Link>
@@ -114,7 +159,7 @@ export default function Header() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="grid h-11 w-11 place-items-center border border-white/70 text-white lg:hidden"
+          className="grid h-11 w-11 place-items-center border border-white/70 text-white transition duration-300 hover:border-[#2596be] hover:bg-[#2596be]"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -127,21 +172,37 @@ export default function Header() {
         }`}
       >
         <nav className="flex flex-col px-6 py-5">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="border-b border-white/10 py-4 text-[15px] font-bold text-white transition hover:text-[#c69208]"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href;
+
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => {
+                  setIsOpen(false);
+                  setActiveSection(item.href);
+                }}
+                className={`border-b border-white/10 py-4 text-[15px] font-bold transition duration-300 hover:text-[#2596be] ${
+                  isActive ? "text-[#2596be]" : "text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
 
           <Link
             href="#contact"
-            onClick={() => setIsOpen(false)}
-            className="mt-5 inline-flex w-fit rounded-full border border-white px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] text-white transition hover:bg-white hover:text-[#c69208]"
+            onClick={() => {
+              setIsOpen(false);
+              setActiveSection("#contact");
+            }}
+            className={`mt-5 inline-flex w-fit rounded-full border px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] transition duration-300 ${
+              activeSection === "#contact"
+                ? "border-[#2596be] bg-[#2596be] text-white"
+                : "border-white text-white hover:border-[#2596be] hover:bg-[#2596be] hover:text-white"
+            }`}
           >
             Get Appointment
           </Link>
