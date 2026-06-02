@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, Search, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -49,7 +50,6 @@ export default function Header() {
     };
 
     handleScroll();
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -62,25 +62,20 @@ export default function Header() {
       className={`fixed left-0 top-0 z-[999] w-full transition-all duration-500 ${
         isScrolled
           ? "bg-[#071126]/95 py-4 shadow-xl backdrop-blur-md"
-          : "bg-transparent py-7"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="mx-auto flex max-w-[1840px] items-center justify-between px-6 lg:px-10">
         {/* Logo */}
-        <Link href="#home" className="flex items-center gap-4">
-          <div className="relative h-12 w-12 shrink-0">
-            <div className="absolute left-1 top-2 h-9 w-7 border-2 border-white" />
-            <div className="absolute left-4 top-0 h-12 w-7 border-2 border-white" />
-          </div>
-
-          <div className="leading-none text-white">
-            <div className="text-[30px] font-extrabold tracking-tight md:text-[36px]">
-              MEC
-            </div>
-            <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.34em] md:text-[12px]">
-              Manila Ecommerce Center
-            </div>
-          </div>
+        <Link href="#home" className="flex items-center">
+          <Image
+            src="/images/mec-logo.png"
+            alt="Manila Ecommerce Center Logo"
+            width={900}
+            height={300}
+            priority
+            className="h-auto w-[220px] object-contain sm:w-[250px] md:w-[280px] lg:w-[310px]"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -89,7 +84,7 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className="relative transition hover:text-white/70"
+              className="relative transition hover:text-[#c69208]"
             >
               {item.label}
             </Link>
@@ -137,7 +132,7 @@ export default function Header() {
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="border-b border-white/10 py-4 text-[15px] font-bold text-white"
+              className="border-b border-white/10 py-4 text-[15px] font-bold text-white transition hover:text-[#c69208]"
             >
               {item.label}
             </Link>
@@ -146,7 +141,7 @@ export default function Header() {
           <Link
             href="#contact"
             onClick={() => setIsOpen(false)}
-            className="mt-5 inline-flex w-fit rounded-full border border-white px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] text-white"
+            className="mt-5 inline-flex w-fit rounded-full border border-white px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] text-white transition hover:bg-white hover:text-[#c69208]"
           >
             Get Appointment
           </Link>
