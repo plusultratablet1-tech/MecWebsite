@@ -3,12 +3,12 @@ import Link from "next/link";
 function BlueprintIcon() {
   return (
     <svg
-      width="78"
-      height="78"
+      width="64"
+      height="64"
       viewBox="0 0 78 78"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[78px] w-[78px] text-[#071126]"
+      className="h-[64px] w-[64px] text-[#071126]"
     >
       <path
         d="M13 9V65H64"
@@ -74,64 +74,65 @@ function BlueprintIcon() {
 export default function ServicesIntro() {
   const services = [
     {
-      title: "Planning",
+      title: "Office Spaces",
       description:
-        "Publishing packages and web page editors now use orem epsum as their default model text.",
+        "Professional and business-ready office spaces designed for companies, teams, entrepreneurs, and growing enterprises.",
     },
     {
-      title: "3 D Modeling",
+      title: "Co-Working Areas",
       description:
-        "Publishing packages and web page editors now use orem epsum as their default model text.",
+        "Flexible shared spaces built for productivity, collaboration, meetings, and modern day-to-day business activity.",
     },
     {
-      title: "Construction",
+      title: "Business Support",
       description:
-        "Publishing packages and web page editors now use orem epsum as their default model text.",
+        "A practical environment that supports operations, inquiries, partnerships, and long-term business growth.",
     },
     {
-      title: "Renovation",
+      title: "E-Commerce Ecosystem",
       description:
-        "Publishing packages and web page editors now use orem epsum as their default model text.",
+        "A strategic hub for digital commerce, creators, brands, and business operators looking to scale in Manila.",
     },
   ];
 
   return (
     <section
       id="service"
-      className="relative overflow-hidden bg-white py-20 md:py-24 lg:py-[135px]"
+      className="relative overflow-hidden bg-white py-20 md:py-24 lg:py-[115px]"
     >
       <div className="mx-auto max-w-[1740px] px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[0.88fr_1.12fr] lg:gap-24">
           {/* Left Content */}
-          <div className="service-heading max-w-[680px]">
-            <div className="mb-8 flex items-center gap-4">
+          <div className="service-heading max-w-[560px]">
+            <div className="mb-7 flex items-center gap-4">
               <span className="h-[2px] w-[38px] bg-[#ff3f35]" />
-              <span className="text-[15px] font-extrabold uppercase tracking-[0.22em] text-[#ff3f35]">
+              <span className="text-[14px] font-extrabold uppercase tracking-[0.22em] text-[#ff3f35]">
                 What We Do
               </span>
             </div>
 
-            <h2 className="text-[44px] font-extrabold leading-[1.25] tracking-[0.03em] text-[#071126] sm:text-[56px] lg:text-[64px] xl:text-[70px]">
-              We provide all the services that you need for your new project
+            <h2 className="text-[32px] font-extrabold leading-[1.28] tracking-[0.02em] text-[#071126] sm:text-[34px] lg:text-[35px]">
+              We provide the space, systems, and support businesses need to
+              grow.
             </h2>
           </div>
 
           {/* Right Services Grid */}
-          <div className="grid grid-cols-1 gap-x-24 gap-y-20 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-20 gap-y-16 sm:grid-cols-2">
             {services.map((service, index) => (
               <div
                 key={service.title}
                 className={`service-card service-delay-${index + 1}`}
               >
-                <div className="mb-10 flex items-center gap-7">
+                <div className="mb-8 flex items-center gap-6">
                   <BlueprintIcon />
 
-                  <h3 className="text-[30px] font-extrabold leading-none tracking-[0.04em] text-[#071126] lg:text-[34px]">
+                  <h3 className="text-[25px] font-extrabold leading-tight tracking-[0.03em] text-[#071126] sm:text-[27px] lg:text-[28px]">
                     {service.title}
                   </h3>
                 </div>
 
-                <p className="max-w-[380px] text-[21px] leading-[1.8] tracking-[0.01em] text-[#5f5f5f]">
+                <p className="max-w-[380px] text-[17px] leading-[1.75] tracking-[0.01em] text-[#5f5f5f]">
                   {service.description}
                 </p>
               </div>
