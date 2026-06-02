@@ -32,8 +32,8 @@ export default function StrategicLocation() {
           {/* Left Content */}
           <div>
             <div className="mb-7 flex items-center gap-4">
-              <span className="h-[2px] w-[38px] bg-[#ff3f35]" />
-              <span className="text-[14px] font-extrabold uppercase tracking-[0.22em] text-[#ff3f35]">
+              <span className="h-[2px] w-[38px] bg-[#c69208]" />
+              <span className="text-[14px] font-extrabold uppercase tracking-[0.22em] text-[#c69208]">
                 Strategic Location
               </span>
             </div>
@@ -57,10 +57,10 @@ export default function StrategicLocation() {
               return (
                 <article
                   key={item.title}
-                  className="group border border-[#e5e7eb] bg-white p-8 transition duration-500 hover:-translate-y-1 hover:border-[#ff3f35]/60 hover:shadow-xl"
+                  className="group border border-[#e5e7eb] bg-white p-8 transition duration-500 hover:-translate-y-1 hover:border-[#c69208]/80 hover:shadow-xl"
                 >
                   <div className="flex gap-6">
-                    <div className="grid h-16 w-16 shrink-0 place-items-center bg-[#ff3f35]/10 text-[#ff3f35] transition duration-300 group-hover:bg-[#ff3f35] group-hover:text-white">
+                    <div className="grid h-16 w-16 shrink-0 place-items-center bg-[#c69208]/10 text-[#c69208] transition duration-300 group-hover:bg-[#c69208] group-hover:text-white">
                       <Icon className="h-8 w-8" />
                     </div>
 
@@ -81,7 +81,7 @@ export default function StrategicLocation() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[420px] w-[420px] rounded-full bg-[#ff3f35]/5" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[420px] w-[420px] rounded-full bg-[#c69208]/5" />
     </section>
   );
 }
