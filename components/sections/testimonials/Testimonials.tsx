@@ -6,16 +6,28 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 export default function Testimonials() {
   const testimonials = [
     {
-      text: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has...",
+      text: "Manila Ecommerce Center provides a professional and accessible environment for teams that need a reliable business location in the heart of Manila.",
       author: "Marray Joe",
       role: "Customer",
       image: "/images/team-1.png",
     },
     {
-      text: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has...",
+      text: "The location is strategic, the space is business-ready, and the overall environment supports companies that want to operate and grow efficiently.",
       author: "Albert Joe",
-      role: "Ceo of Finda",
+      role: "Business Owner",
       image: "/images/team-4.png",
+    },
+    {
+      text: "MEC gives modern businesses the advantage of accessibility, visibility, and a professional setting that supports day-to-day operations.",
+      author: "Clarisse Tan",
+      role: "Tenant Partner",
+      image: "/images/team-2.png",
+    },
+    {
+      text: "A strong choice for entrepreneurs, creators, and business teams looking for a Manila-based hub with practical growth opportunities.",
+      author: "Daniel Reyes",
+      role: "Entrepreneur",
+      image: "/images/team-3.png",
     },
   ];
 
@@ -52,18 +64,18 @@ export default function Testimonials() {
           {/* Left Heading */}
           <div className="testimonial-heading">
             <div className="mb-7 flex items-center gap-4">
-              <span className="h-[2px] w-[38px] bg-[#ff3f35]" />
-              <span className="text-[13px] font-extrabold uppercase tracking-[0.22em] text-[#ff3f35]">
+              <span className="h-[2px] w-[38px] bg-[#c69208]" />
+              <span className="text-[13px] font-extrabold uppercase tracking-[0.22em] text-[#c69208]">
                 Testimonials
               </span>
             </div>
 
-            <h2 className="max-w-[430px] text-[38px] font-extrabold leading-[1.23] tracking-tight text-white sm:text-[48px] lg:text-[52px] xl:text-[58px]">
+            <h2 className="max-w-[430px] text-[32px] font-extrabold leading-[1.23] tracking-tight text-white sm:text-[34px] lg:text-[35px]">
               What They&apos;re
               <br />
               Talking About
               <br />
-              Comapany ?
+              MEC
             </h2>
           </div>
 
@@ -76,8 +88,8 @@ export default function Testimonials() {
                   className={`testimonial-card testimonial-delay-${index + 1}`}
                 >
                   {/* White Card */}
-                  <div className="testimonial-box relative rounded-[7px] bg-white px-10 py-10 text-[#222222] transition duration-500 hover:-translate-y-2">
-                    <Quote className="mb-6 h-12 w-12 stroke-[1.7] text-[#ff3f35]" />
+                  <div className="testimonial-box relative rounded-[7px] bg-white px-10 py-10 text-[#222222] transition duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#c69208]/20">
+                    <Quote className="mb-6 h-12 w-12 stroke-[1.7] text-[#c69208]" />
 
                     <p className="max-w-[420px] text-[17px] leading-[1.85] tracking-[0.035em] text-[#343434]">
                       {testimonial.text}
@@ -89,7 +101,7 @@ export default function Testimonials() {
 
                   {/* Author */}
                   <div className="mt-9 flex items-center gap-5 pl-[55px]">
-                    <div className="relative h-[66px] w-[66px] overflow-hidden rounded-full">
+                    <div className="relative h-[66px] w-[66px] overflow-hidden rounded-full ring-2 ring-[#c69208]/70">
                       <Image
                         src={testimonial.image}
                         alt={testimonial.author}
@@ -104,7 +116,7 @@ export default function Testimonials() {
                         {testimonial.author}
                       </h3>
 
-                      <p className="mt-2 text-[14px] font-medium tracking-[0.08em] text-[#ff3f35]">
+                      <p className="mt-2 text-[14px] font-medium tracking-[0.08em] text-[#c69208]">
                         {testimonial.role}
                       </p>
                     </div>
@@ -118,7 +130,7 @@ export default function Testimonials() {
               <button
                 type="button"
                 aria-label="Previous testimonial"
-                className="grid h-[52px] w-[52px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
+                className="grid h-[52px] w-[52px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#c69208] hover:bg-[#c69208]"
               >
                 <ChevronLeft className="h-6 w-6" />
               </button>
@@ -126,7 +138,7 @@ export default function Testimonials() {
               <button
                 type="button"
                 aria-label="Next testimonial"
-                className="grid h-[52px] w-[52px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
+                className="grid h-[52px] w-[52px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#c69208] hover:bg-[#c69208]"
               >
                 <ChevronRight className="h-6 w-6" />
               </button>
@@ -143,11 +155,11 @@ export default function Testimonials() {
               key={logo.name}
               className={`testimonial-logo testimonial-logo-delay-${
                 index + 1
-              } flex min-h-[175px] flex-col items-center justify-center border-r border-white/10 px-6 text-center last:border-r-0`}
+              } group flex min-h-[175px] flex-col items-center justify-center border-r border-white/10 px-6 text-center transition duration-300 last:border-r-0 hover:bg-[#c69208]/10`}
             >
               <LogoMark type={logo.icon} />
 
-              <p className="mt-5 text-[15px] font-medium tracking-[0.04em] text-white/55">
+              <p className="mt-5 text-[15px] font-medium tracking-[0.04em] text-white/55 transition duration-300 group-hover:text-[#c69208]">
                 {logo.name}
               </p>
             </div>
@@ -161,7 +173,7 @@ export default function Testimonials() {
         className="absolute bottom-[78px] right-[66px] hidden flex-col items-center gap-4 text-[#9ca3af] lg:flex"
         aria-label="Go to top"
       >
-        <span className="h-[58px] w-[3px] bg-[#ff3f35]" />
+        <span className="h-[58px] w-[3px] bg-[#c69208]" />
         <span className="vertical-rl text-[13px] font-extrabold uppercase tracking-[0.18em]">
           Go To Top
         </span>
@@ -178,7 +190,7 @@ function LogoMark({ type }: { type: string }) {
         height="70"
         viewBox="0 0 70 70"
         fill="none"
-        className="text-white/55"
+        className="text-white/55 transition duration-300 group-hover:text-[#c69208]"
         xmlns="http://www.w3.org/2000/svg"
       >
         <circle
@@ -204,7 +216,7 @@ function LogoMark({ type }: { type: string }) {
         height="70"
         viewBox="0 0 80 70"
         fill="none"
-        className="text-white/55"
+        className="text-white/55 transition duration-300 group-hover:text-[#c69208]"
         xmlns="http://www.w3.org/2000/svg"
       >
         <circle cx="19" cy="17" r="7" fill="currentColor" />
@@ -233,7 +245,7 @@ function LogoMark({ type }: { type: string }) {
         height="70"
         viewBox="0 0 70 70"
         fill="none"
-        className="text-white/55"
+        className="text-white/55 transition duration-300 group-hover:text-[#c69208]"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -255,7 +267,7 @@ function LogoMark({ type }: { type: string }) {
         height="70"
         viewBox="0 0 76 70"
         fill="none"
-        className="text-white/55"
+        className="text-white/55 transition duration-300 group-hover:text-[#c69208]"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -288,7 +300,7 @@ function LogoMark({ type }: { type: string }) {
       height="70"
       viewBox="0 0 76 70"
       fill="none"
-      className="text-white/55"
+      className="text-white/55 transition duration-300 group-hover:text-[#c69208]"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
