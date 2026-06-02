@@ -248,7 +248,7 @@
 }
 
 /* =========================================================
-   Project Gallery Scroll Reveal Animation
+   Project Gallery Scroll Reveal + Hover Animation
    Used by: components/sections/gallery/ProjectGallery.tsx
    ========================================================= */
 
@@ -361,6 +361,54 @@
 .gallery-section.is-visible .gallery-delay-7 .gallery-image,
 .gallery-section.is-visible .gallery-delay-7 .gallery-wipe {
   animation-delay: 0.68s;
+}
+
+/* Gallery hover effect */
+.gallery-hover-card {
+  cursor: pointer;
+}
+
+.gallery-hover-card .gallery-hover-overlay {
+  transform: scale(0.96);
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-hover-card .gallery-hover-icons {
+  opacity: 0;
+  transform: translateY(-14px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-hover-card .gallery-hover-content {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-hover-card:hover .gallery-hover-overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gallery-hover-card:hover .gallery-hover-icons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-hover-card:hover .gallery-hover-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-hover-card:hover .gallery-image {
+  transform: scale(1.08);
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* =========================================================
