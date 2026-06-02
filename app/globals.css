@@ -363,7 +363,6 @@
   animation-delay: 0.68s;
 }
 
-/* Gallery hover effect */
 .gallery-hover-card {
   cursor: pointer;
 }
@@ -409,6 +408,107 @@
 .gallery-hover-card:hover .gallery-image {
   transform: scale(1.08);
   transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================================
+   Testimonials Scroll Reveal + Hover Animation
+   Used by: components/sections/testimonials/Testimonials.tsx
+   ========================================================= */
+
+@keyframes testimonialHeadingIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-45px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes testimonialContentIn {
+  0% {
+    opacity: 0;
+    transform: translateY(55px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes testimonialLogoIn {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimonial-heading {
+  opacity: 0;
+  animation: testimonialHeadingIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.18s;
+}
+
+.testimonial-content {
+  opacity: 0;
+  animation: testimonialContentIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.28s;
+}
+
+.testimonial-card {
+  opacity: 0;
+  animation: testimonialContentIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.testimonial-delay-1 {
+  animation-delay: 0.38s;
+}
+
+.testimonial-delay-2 {
+  animation-delay: 0.52s;
+}
+
+.testimonial-box:hover {
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+}
+
+.testimonial-nav {
+  opacity: 0;
+  animation: testimonialContentIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.68s;
+}
+
+.testimonial-logo {
+  opacity: 0;
+  animation: testimonialLogoIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.testimonial-logo-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.testimonial-logo-delay-2 {
+  animation-delay: 0.32s;
+}
+
+.testimonial-logo-delay-3 {
+  animation-delay: 0.44s;
+}
+
+.testimonial-logo-delay-4 {
+  animation-delay: 0.56s;
+}
+
+.testimonial-logo-delay-5 {
+  animation-delay: 0.68s;
 }
 
 /* =========================================================
