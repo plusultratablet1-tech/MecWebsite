@@ -1,4 +1,4 @@
-import { Building2, Landmark, GraduationCap, MapPin } from "lucide-react";
+import { Building2, Landmark, GraduationCap } from "lucide-react";
 
 export default function StrategicLocation() {
   const locations = [
@@ -25,29 +25,31 @@ export default function StrategicLocation() {
   return (
     <section
       id="location"
-      className="relative overflow-hidden bg-[#f5f6f8] py-20 md:py-24 lg:py-[120px]"
+      className="relative overflow-hidden bg-[#f5f6f8] py-20 md:py-24 lg:py-[115px]"
     >
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.44fr_0.56fr] lg:gap-20">
+          {/* Left Content */}
           <div>
             <div className="mb-7 flex items-center gap-4">
               <span className="h-[2px] w-[38px] bg-[#ff3f35]" />
-              <span className="text-[13px] font-extrabold uppercase tracking-[0.22em] text-[#ff3f35]">
+              <span className="text-[14px] font-extrabold uppercase tracking-[0.22em] text-[#ff3f35]">
                 Strategic Location
               </span>
             </div>
 
-            <h2 className="max-w-[620px] text-[40px] font-extrabold leading-[1.18] tracking-tight text-[#071126] sm:text-[50px] lg:text-[60px]">
+            <h2 className="max-w-[560px] text-[32px] font-extrabold leading-[1.28] tracking-[0.02em] text-[#071126] sm:text-[34px] lg:text-[35px]">
               A business address in the heart of Manila
             </h2>
 
-            <p className="mt-8 max-w-[620px] text-[18px] leading-[1.8] text-[#5f5f5f]">
+            <p className="mt-7 max-w-[620px] text-[17px] leading-[1.8] text-[#5f5f5f]">
               Manila Ecommerce Center is located at 180 Casal Street, San
               Miguel, Manila — a strategic area surrounded by government,
               education, commercial, and business activity.
             </p>
           </div>
 
+          {/* Right Location Cards */}
           <div className="grid grid-cols-1 gap-5">
             {locations.map((item) => {
               const Icon = item.icon;
@@ -63,7 +65,7 @@ export default function StrategicLocation() {
                     </div>
 
                     <div>
-                      <h3 className="text-[24px] font-extrabold text-[#071126]">
+                      <h3 className="text-[25px] font-extrabold leading-tight tracking-[0.03em] text-[#071126] sm:text-[27px] lg:text-[28px]">
                         {item.title}
                       </h3>
 
