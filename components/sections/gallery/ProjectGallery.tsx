@@ -71,7 +71,7 @@ export default function ProjectGallery() {
                 priority={item.id <= 3}
               />
 
-              <div className="gallery-wipe pointer-events-none absolute inset-0 z-10 bg-[#111827]" />
+              <div className="gallery-wipe pointer-events-none absolute inset-0 z-10 bg-[#071126]" />
             </div>
           ))}
         </div>
