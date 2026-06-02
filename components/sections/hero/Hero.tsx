@@ -30,7 +30,7 @@ export default function Hero() {
           />
         </div>
 
-        {/* Light overlay for readability */}
+        {/* Soft overlay for readability */}
         <div className="absolute inset-0 z-0 bg-black/5" />
 
         {/* Decorative soft circles */}
