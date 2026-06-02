@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Header() {
@@ -116,14 +116,14 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`relative transition duration-300 hover:text-[#2596be] ${
-                  isActive ? "text-[#2596be]" : "text-white"
+                className={`relative transition duration-300 hover:text-[#141d31] ${
+                  isActive ? "text-[#141d31]" : "text-white"
                 }`}
               >
                 {item.label}
 
                 <span
-                  className={`absolute -bottom-2 left-0 h-[2px] bg-[#2596be] transition-all duration-300 ${
+                  className={`absolute -bottom-2 left-0 h-[2px] bg-[#141d31] transition-all duration-300 ${
                     isActive ? "w-full" : "w-0"
                   }`}
                 />
@@ -132,22 +132,14 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right Actions */}
-        <div className="hidden items-center gap-6 lg:flex">
-          <button
-            type="button"
-            aria-label="Search"
-            className="grid h-12 w-12 place-items-center rounded-full border border-white/80 text-white transition duration-300 hover:border-[#2596be] hover:bg-[#2596be] hover:text-white"
-          >
-            <Search className="h-5 w-5" />
-          </button>
-
+        {/* Right CTA */}
+        <div className="hidden items-center lg:flex">
           <Link
             href="#contact"
             className={`rounded-full border px-8 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] transition duration-300 ${
               activeSection === "#contact"
-                ? "border-[#2596be] bg-[#2596be] text-white"
-                : "border-white text-white hover:border-[#2596be] hover:bg-[#2596be] hover:text-white"
+                ? "border-[#141d31] bg-[#141d31] text-white"
+                : "border-white text-white hover:border-[#141d31] hover:bg-[#141d31] hover:text-white"
             }`}
           >
             Get Appointment
@@ -159,7 +151,7 @@ export default function Header() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="grid h-11 w-11 place-items-center border border-white/70 text-white transition duration-300 hover:border-[#2596be] hover:bg-[#2596be]"
+          className="grid h-11 w-11 place-items-center border border-white/70 text-white transition duration-300 hover:border-[#141d31] hover:bg-[#141d31]"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -183,8 +175,8 @@ export default function Header() {
                   setIsOpen(false);
                   setActiveSection(item.href);
                 }}
-                className={`border-b border-white/10 py-4 text-[15px] font-bold transition duration-300 hover:text-[#2596be] ${
-                  isActive ? "text-[#2596be]" : "text-white"
+                className={`border-b border-white/10 py-4 text-[15px] font-bold transition duration-300 hover:text-[#141d31] ${
+                  isActive ? "text-[#141d31]" : "text-white"
                 }`}
               >
                 {item.label}
@@ -200,8 +192,8 @@ export default function Header() {
             }}
             className={`mt-5 inline-flex w-fit rounded-full border px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.16em] transition duration-300 ${
               activeSection === "#contact"
-                ? "border-[#2596be] bg-[#2596be] text-white"
-                : "border-white text-white hover:border-[#2596be] hover:bg-[#2596be] hover:text-white"
+                ? "border-[#141d31] bg-[#141d31] text-white"
+                : "border-white text-white hover:border-[#141d31] hover:bg-[#141d31] hover:text-white"
             }`}
           >
             Get Appointment
