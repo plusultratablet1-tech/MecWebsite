@@ -2,141 +2,109 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { useMemo, useState } from "react";
 
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   const testimonials = [
     {
-      text: "MEC gave our brand a stronger operational foundation. From space, support, and digital commerce access, the environment helped us move with more confidence.",
+      text: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has...",
       author: "Marray Joe",
-      role: "Retail Partner",
+      role: "Customer",
       image: "/images/team-1.png",
     },
     {
-      text: "Working inside a business ecosystem made collaboration easier. The team understands growth, execution, and the support modern enterprises need.",
+      text: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has...",
       author: "Albert Joe",
-      role: "Business Owner",
+      role: "Ceo of Finda",
       image: "/images/team-4.png",
     },
-    {
-      text: "The center gives businesses the right space to build, connect, and operate. It is designed for brands that want practical support and long-term scalability.",
-      author: "Robert Joe",
-      role: "Operations Lead",
-      image: "/images/team-2.png",
-    },
-    {
-      text: "MEC creates a professional environment where companies can focus on growth. The location, facilities, and business support make expansion more efficient.",
-      author: "Mary Joe",
-      role: "E-Commerce Partner",
-      image: "/images/team-3.png",
-    },
   ];
 
-  const missionElements = [
+  const logos = [
     {
-      title: "Our Mission",
-      description:
-        "To provide businesses with a modern commercial environment where operations, digital commerce, and growth can work together.",
+      name: "Build Circle",
+      icon: "linked",
     },
     {
-      title: "Our Vision",
-      description:
-        "To become a leading business and e-commerce hub that supports brands, entrepreneurs, and enterprises in scaling with confidence.",
+      name: "LOXIS GROUP",
+      icon: "dots",
     },
     {
-      title: "Our Commitment",
-      description:
-        "To deliver reliable spaces, practical support, and a professional ecosystem built for long-term business success.",
+      name: "Buildnox",
+      icon: "leaf",
     },
     {
-      title: "Our Ecosystem",
-      description:
-        "We connect business spaces, digital systems, creator commerce, and operational solutions into one integrated growth environment.",
+      name: "Archi Corp.",
+      icon: "blocks",
     },
     {
-      title: "Our Standard",
-      description:
-        "We aim to maintain a high level of service, accessibility, and business-ready infrastructure for every partner and tenant.",
+      name: "Functional Arch",
+      icon: "circle",
     },
   ];
-
-  const visibleTestimonials = useMemo(() => {
-    const first = testimonials[activeIndex];
-    const second = testimonials[(activeIndex + 1) % testimonials.length];
-
-    return [first, second];
-  }, [activeIndex, testimonials]);
-
-  const nextTestimonial = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setActiveIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
-  };
 
   return (
     <section
       id="testimonials"
-      className="testimonials-section relative overflow-hidden bg-[#071126] py-20 text-white md:py-24 lg:py-[120px]"
+      className="testimonials-section relative overflow-hidden bg-[#071126] text-white"
     >
-      <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
+      <div className="mx-auto max-w-[1500px] px-6 pb-20 pt-20 md:pb-24 md:pt-24 lg:px-10 lg:pb-[95px] lg:pt-[110px]">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.32fr_0.68fr] lg:gap-20">
-          {/* Left Title */}
+          {/* Left Heading */}
           <div className="testimonial-heading">
-            <div className="mb-8 flex items-center gap-4">
+            <div className="mb-7 flex items-center gap-4">
               <span className="h-[2px] w-[38px] bg-[#ff3f35]" />
-              <span className="text-[15px] font-extrabold uppercase tracking-[0.22em] text-[#ff3f35]">
+              <span className="text-[13px] font-extrabold uppercase tracking-[0.22em] text-[#ff3f35]">
                 Testimonials
               </span>
             </div>
 
-            <h2 className="max-w-[430px] text-[42px] font-extrabold leading-[1.22] tracking-tight text-white sm:text-[50px] lg:text-[56px] xl:text-[62px]">
-              What They&apos;re Talking About Company ?
+            <h2 className="max-w-[430px] text-[38px] font-extrabold leading-[1.23] tracking-tight text-white sm:text-[48px] lg:text-[52px] xl:text-[58px]">
+              What They&apos;re
+              <br />
+              Talking About
+              <br />
+              Comapany ?
             </h2>
           </div>
 
-          {/* Testimonial Cards */}
+          {/* Right Cards */}
           <div className="testimonial-content">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-12">
-              {visibleTestimonials.map((testimonial, index) => (
+              {testimonials.map((testimonial, index) => (
                 <article
-                  key={`${testimonial.author}-${activeIndex}`}
+                  key={testimonial.author}
                   className={`testimonial-card testimonial-delay-${index + 1}`}
                 >
-                  {/* Card Box */}
-                  <div className="testimonial-box relative rounded-[8px] bg-white px-10 py-11 text-[#222222] shadow-none transition duration-500 hover:-translate-y-2">
-                    <Quote className="mb-7 h-14 w-14 stroke-[1.6] text-[#ff3f35]" />
+                  {/* White Card */}
+                  <div className="testimonial-box relative rounded-[7px] bg-white px-10 py-10 text-[#222222] transition duration-500 hover:-translate-y-2">
+                    <Quote className="mb-6 h-12 w-12 stroke-[1.7] text-[#ff3f35]" />
 
-                    <p className="max-w-[420px] text-[19px] leading-[1.75] tracking-[0.04em] text-[#343434]">
+                    <p className="max-w-[420px] text-[17px] leading-[1.85] tracking-[0.035em] text-[#343434]">
                       {testimonial.text}
                     </p>
 
-                    {/* Speech triangle */}
-                    <span className="absolute -bottom-[18px] left-[88px] h-0 w-0 border-l-[26px] border-r-[26px] border-t-[18px] border-l-transparent border-r-transparent border-t-white" />
+                    {/* Speech Triangle */}
+                    <span className="absolute -bottom-[17px] left-[70px] h-0 w-0 border-l-[24px] border-r-[24px] border-t-[17px] border-l-transparent border-r-transparent border-t-white" />
                   </div>
 
                   {/* Author */}
-                  <div className="mt-10 flex items-center gap-6 pl-[70px]">
-                    <div className="relative h-[82px] w-[82px] overflow-hidden rounded-full">
+                  <div className="mt-9 flex items-center gap-5 pl-[55px]">
+                    <div className="relative h-[66px] w-[66px] overflow-hidden rounded-full">
                       <Image
                         src={testimonial.image}
                         alt={testimonial.author}
                         fill
-                        sizes="82px"
+                        sizes="66px"
                         className="object-cover"
                       />
                     </div>
 
                     <div>
-                      <h3 className="text-[22px] font-extrabold leading-tight text-white">
+                      <h3 className="text-[19px] font-extrabold leading-tight text-white">
                         {testimonial.author}
                       </h3>
-                      <p className="mt-2 text-[15px] font-medium tracking-[0.08em] text-[#ff3f35]">
+
+                      <p className="mt-2 text-[14px] font-medium tracking-[0.08em] text-[#ff3f35]">
                         {testimonial.role}
                       </p>
                     </div>
@@ -146,12 +114,11 @@ export default function Testimonials() {
             </div>
 
             {/* Navigation Buttons */}
-            <div className="testimonial-nav mt-10 flex items-center gap-5 pl-[70px]">
+            <div className="testimonial-nav mt-8 flex items-center gap-5 pl-[55px]">
               <button
                 type="button"
                 aria-label="Previous testimonial"
-                onClick={prevTestimonial}
-                className="grid h-[58px] w-[58px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
+                className="grid h-[52px] w-[52px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
               >
                 <ChevronLeft className="h-6 w-6" />
               </button>
@@ -159,43 +126,36 @@ export default function Testimonials() {
               <button
                 type="button"
                 aria-label="Next testimonial"
-                onClick={nextTestimonial}
-                className="grid h-[58px] w-[58px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
+                className="grid h-[52px] w-[52px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
               >
                 <ChevronRight className="h-6 w-6" />
               </button>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Mission Elements */}
-        <div className="testimonial-logos mt-24 border-t border-white/10 pt-16">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {missionElements.map((item, index) => (
-              <article
-                key={item.title}
-                className={`testimonial-logo testimonial-logo-delay-${
-                  index + 1
-                } group min-h-[210px] border border-white/10 bg-white/[0.03] p-7 transition duration-500 hover:-translate-y-2 hover:border-[#ff3f35]/70 hover:bg-white/[0.06]`}
-              >
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-[14px] font-extrabold text-white/60 transition duration-300 group-hover:border-[#ff3f35] group-hover:text-[#ff3f35]">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
+      {/* Logo Strip */}
+      <div className="testimonial-logos border-t border-white/10">
+        <div className="mx-auto grid max-w-[1920px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+          {logos.map((logo, index) => (
+            <div
+              key={logo.name}
+              className={`testimonial-logo testimonial-logo-delay-${
+                index + 1
+              } flex min-h-[175px] flex-col items-center justify-center border-r border-white/10 px-6 text-center last:border-r-0`}
+            >
+              <LogoMark type={logo.icon} />
 
-                <h3 className="mb-4 text-[20px] font-extrabold leading-tight text-white">
-                  {item.title}
-                </h3>
-
-                <p className="text-[14px] leading-[1.75] text-white/50">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
+              <p className="mt-5 text-[15px] font-medium tracking-[0.04em] text-white/55">
+                {logo.name}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Go to top marker */}
+      {/* Go to Top Marker */}
       <a
         href="#home"
         className="absolute bottom-[78px] right-[66px] hidden flex-col items-center gap-4 text-[#9ca3af] lg:flex"
@@ -207,5 +167,141 @@ export default function Testimonials() {
         </span>
       </a>
     </section>
+  );
+}
+
+function LogoMark({ type }: { type: string }) {
+  if (type === "linked") {
+    return (
+      <svg
+        width="70"
+        height="70"
+        viewBox="0 0 70 70"
+        fill="none"
+        className="text-white/55"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="27"
+          cy="40"
+          r="18"
+          stroke="currentColor"
+          strokeWidth="5"
+        />
+        <path
+          d="M31 30H51V10H31V30Z"
+          stroke="currentColor"
+          strokeWidth="5"
+        />
+      </svg>
+    );
+  }
+
+  if (type === "dots") {
+    return (
+      <svg
+        width="80"
+        height="70"
+        viewBox="0 0 80 70"
+        fill="none"
+        className="text-white/55"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="19" cy="17" r="7" fill="currentColor" />
+        <circle cx="50" cy="17" r="7" fill="currentColor" />
+        <circle cx="70" cy="17" r="7" fill="currentColor" />
+        <path
+          d="M14 53L48 20"
+          stroke="currentColor"
+          strokeWidth="8"
+          strokeLinecap="round"
+        />
+        <path
+          d="M36 53L66 23"
+          stroke="currentColor"
+          strokeWidth="8"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+
+  if (type === "leaf") {
+    return (
+      <svg
+        width="70"
+        height="70"
+        viewBox="0 0 70 70"
+        fill="none"
+        className="text-white/55"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18 10C37 13 47 27 47 50C29 48 18 36 18 10Z"
+          fill="currentColor"
+        />
+        <path
+          d="M52 25C43 28 38 36 38 52C50 49 56 39 52 25Z"
+          fill="currentColor"
+        />
+      </svg>
+    );
+  }
+
+  if (type === "blocks") {
+    return (
+      <svg
+        width="76"
+        height="70"
+        viewBox="0 0 76 70"
+        fill="none"
+        className="text-white/55"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 42H30V62H10V42Z"
+          stroke="currentColor"
+          strokeWidth="5"
+        />
+        <path
+          d="M32 28H52V48H32V28Z"
+          stroke="currentColor"
+          strokeWidth="5"
+        />
+        <path
+          d="M50 8H70V28H50V8Z"
+          stroke="currentColor"
+          strokeWidth="5"
+        />
+        <path
+          d="M30 42L52 28"
+          stroke="currentColor"
+          strokeWidth="5"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      width="76"
+      height="70"
+      viewBox="0 0 76 70"
+      fill="none"
+      className="text-white/55"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 35C12 21.7452 22.7452 11 36 11H40C53.2548 11 64 21.7452 64 35"
+        stroke="currentColor"
+        strokeWidth="5"
+      />
+      <path
+        d="M64 35C64 48.2548 53.2548 59 40 59H36C22.7452 59 12 48.2548 12 35"
+        stroke="currentColor"
+        strokeWidth="5"
+      />
+      <path d="M13 35H63" stroke="currentColor" strokeWidth="5" />
+    </svg>
   );
 }
