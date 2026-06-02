@@ -1,129 +1,151 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 export default function Testimonials() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-
   const testimonials = [
     {
-      text: 'Buildnox delivered our project on time with exceptional quality. Their attention to detail and professional team made the entire process smooth and hassle-free.',
-      author: 'Robert Joe',
-      role: 'CEO',
-      image: '/images/team-1.png',
+      text: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has...",
+      author: "Marray Joe",
+      role: "Customer",
+      image: "/images/team-1.png",
     },
     {
-      text: 'Working with Buildnox was an incredible experience. They transformed our vision into reality with innovative design solutions and excellent execution.',
-      author: 'Albert Flores',
-      role: 'Director',
-      image: '/images/team-4.png',
+      text: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has...",
+      author: "Albert Joe",
+      role: "Ceo of Finda",
+      image: "/images/team-4.png",
     },
   ];
 
   const logos = [
-    { name: 'Build Circle', initials: 'BC' },
-    { name: 'Lux Group', initials: 'LG' },
-    { name: 'Buildnox', initials: 'BX' },
-    { name: 'Arch Corp', initials: 'AC' },
-    { name: 'Functional Arch', initials: 'FA' },
+    { name: "Build Circle", initials: "BC" },
+    { name: "Lux Group", initials: "LG" },
+    { name: "Buildnox", initials: "BX" },
+    { name: "Arch Corp", initials: "AC" },
+    { name: "Functional Arch", initials: "FA" },
   ];
 
-  const nextTestimonial = () => {
-    setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
-    <section className="py-16 md:py-24 bg-blue-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 mb-12">
-          {/* Left - Title */}
-          <div className="space-y-4 text-white">
-            <div className="text-orange-400 font-semibold text-sm tracking-wide">OUR TESTIMONIALS</div>
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight text-balance">
-              What They&apos;re Talking About Company?
+    <section
+      id="testimonials"
+      className="testimonials-section relative overflow-hidden bg-[#071126] py-20 text-white md:py-24 lg:py-[120px]"
+    >
+      <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.32fr_0.68fr] lg:gap-20">
+          {/* Left Title */}
+          <div className="testimonial-heading">
+            <div className="mb-8 flex items-center gap-4">
+              <span className="h-[2px] w-[38px] bg-[#ff3f35]" />
+              <span className="text-[15px] font-extrabold uppercase tracking-[0.22em] text-[#ff3f35]">
+                Testimonials
+              </span>
+            </div>
+
+            <h2 className="max-w-[430px] text-[42px] font-extrabold leading-[1.22] tracking-tight text-white sm:text-[50px] lg:text-[56px] xl:text-[62px]">
+              What They&apos;re Talking About Comapany ?
             </h2>
           </div>
 
-          {/* Right - Testimonial Cards */}
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {testimonials.map((testimonial, idx) => (
-                <div
-                  key={idx}
-                  className={`p-6 rounded-lg transition-all duration-300 ${
-                    idx === activeTestimonial
-                      ? 'bg-white text-gray-900 scale-100'
-                      : 'bg-white/10 text-white scale-95 opacity-50'
-                  }`}
+          {/* Testimonial Cards */}
+          <div className="testimonial-content">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-12">
+              {testimonials.map((testimonial, index) => (
+                <article
+                  key={testimonial.author}
+                  className={`testimonial-card testimonial-delay-${index + 1}`}
                 >
-                  <Quote className="w-8 h-8 text-orange-500 mb-4" />
-                  <p className="text-sm leading-relaxed mb-6 line-clamp-3">{testimonial.text}</p>
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                  {/* Card Box */}
+                  <div className="testimonial-box relative rounded-[8px] bg-white px-10 py-11 text-[#222222] shadow-none transition duration-500 hover:-translate-y-2">
+                    <Quote className="mb-7 h-14 w-14 stroke-[1.6] text-[#ff3f35]" />
+
+                    <p className="max-w-[420px] text-[19px] leading-[1.75] tracking-[0.04em] text-[#343434]">
+                      {testimonial.text}
+                    </p>
+
+                    {/* Speech triangle */}
+                    <span className="absolute -bottom-[18px] left-[88px] h-0 w-0 border-l-[26px] border-r-[26px] border-t-[18px] border-l-transparent border-r-transparent border-t-white" />
+                  </div>
+
+                  {/* Author */}
+                  <div className="mt-10 flex items-center gap-6 pl-[70px]">
+                    <div className="relative h-[82px] w-[82px] overflow-hidden rounded-full">
                       <Image
                         src={testimonial.image}
                         alt={testimonial.author}
                         fill
+                        sizes="82px"
                         className="object-cover"
                       />
                     </div>
+
                     <div>
-                      <p className="font-semibold text-sm">{testimonial.author}</p>
-                      <p className="text-xs opacity-75">{testimonial.role}</p>
+                      <h3 className="text-[22px] font-extrabold leading-tight text-white">
+                        {testimonial.author}
+                      </h3>
+                      <p className="mt-2 text-[15px] font-medium tracking-[0.08em] text-[#ff3f35]">
+                        {testimonial.role}
+                      </p>
                     </div>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
 
-            {/* Navigation */}
-            <div className="flex items-center gap-2 pt-4">
+            {/* Navigation Buttons */}
+            <div className="testimonial-nav mt-10 flex items-center gap-5 pl-[70px]">
               <button
-                onClick={prevTestimonial}
-                className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
+                type="button"
+                aria-label="Previous testimonial"
+                className="grid h-[58px] w-[58px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="h-6 w-6" />
               </button>
-              <div className="flex items-center gap-2 flex-1 justify-center">
-                {testimonials.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveTestimonial(idx)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      idx === activeTestimonial ? 'bg-orange-400' : 'bg-white/30'
-                    }`}
-                  />
-                ))}
-              </div>
+
               <button
-                onClick={nextTestimonial}
-                className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
+                type="button"
+                aria-label="Next testimonial"
+                className="grid h-[58px] w-[58px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="h-6 w-6" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Logo Grid */}
-        <div className="border-t border-white/20 pt-12">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {logos.map((logo, idx) => (
-              <div key={idx} className="flex items-center justify-center">
-                <div className="w-16 h-16 rounded-lg bg-white/10 flex items-center justify-center text-white/50 font-semibold text-sm text-center px-2">
+        {/* Logo Grid / Bottom Strip */}
+        <div className="testimonial-logos mt-24 border-t border-white/10 pt-16">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+            {logos.map((logo, index) => (
+              <div
+                key={logo.name}
+                className={`testimonial-logo testimonial-logo-delay-${index + 1} flex flex-col items-center justify-center gap-3 text-center`}
+              >
+                <div className="grid h-16 w-16 place-items-center rounded-full border border-white/15 text-[15px] font-extrabold text-white/45 transition duration-300 hover:border-[#ff3f35] hover:text-[#ff3f35]">
                   {logo.initials}
                 </div>
+
+                <p className="text-[14px] font-medium tracking-[0.04em] text-white/45">
+                  {logo.name}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Go to top marker */}
+      <a
+        href="#home"
+        className="absolute bottom-[78px] right-[66px] hidden flex-col items-center gap-4 text-[#9ca3af] lg:flex"
+        aria-label="Go to top"
+      >
+        <span className="h-[58px] w-[3px] bg-[#ff3f35]" />
+        <span className="vertical-rl text-[13px] font-extrabold uppercase tracking-[0.18em]">
+          Go To Top
+        </span>
+      </a>
     </section>
   );
 }
