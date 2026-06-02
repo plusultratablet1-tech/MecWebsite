@@ -2,30 +2,82 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { useMemo, useState } from "react";
 
 export default function Testimonials() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const testimonials = [
     {
-      text: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has...",
+      text: "MEC gave our brand a stronger operational foundation. From space, support, and digital commerce access, the environment helped us move with more confidence.",
       author: "Marray Joe",
-      role: "Customer",
+      role: "Retail Partner",
       image: "/images/team-1.png",
     },
     {
-      text: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has...",
+      text: "Working inside a business ecosystem made collaboration easier. The team understands growth, execution, and the support modern enterprises need.",
       author: "Albert Joe",
-      role: "Ceo of Finda",
+      role: "Business Owner",
       image: "/images/team-4.png",
+    },
+    {
+      text: "The center gives businesses the right space to build, connect, and operate. It is designed for brands that want practical support and long-term scalability.",
+      author: "Robert Joe",
+      role: "Operations Lead",
+      image: "/images/team-2.png",
+    },
+    {
+      text: "MEC creates a professional environment where companies can focus on growth. The location, facilities, and business support make expansion more efficient.",
+      author: "Mary Joe",
+      role: "E-Commerce Partner",
+      image: "/images/team-3.png",
     },
   ];
 
-  const logos = [
-    { name: "Build Circle", initials: "BC" },
-    { name: "Lux Group", initials: "LG" },
-    { name: "Buildnox", initials: "BX" },
-    { name: "Arch Corp", initials: "AC" },
-    { name: "Functional Arch", initials: "FA" },
+  const missionElements = [
+    {
+      title: "Our Mission",
+      description:
+        "To provide businesses with a modern commercial environment where operations, digital commerce, and growth can work together.",
+    },
+    {
+      title: "Our Vision",
+      description:
+        "To become a leading business and e-commerce hub that supports brands, entrepreneurs, and enterprises in scaling with confidence.",
+    },
+    {
+      title: "Our Commitment",
+      description:
+        "To deliver reliable spaces, practical support, and a professional ecosystem built for long-term business success.",
+    },
+    {
+      title: "Our Ecosystem",
+      description:
+        "We connect business spaces, digital systems, creator commerce, and operational solutions into one integrated growth environment.",
+    },
+    {
+      title: "Our Standard",
+      description:
+        "We aim to maintain a high level of service, accessibility, and business-ready infrastructure for every partner and tenant.",
+    },
   ];
+
+  const visibleTestimonials = useMemo(() => {
+    const first = testimonials[activeIndex];
+    const second = testimonials[(activeIndex + 1) % testimonials.length];
+
+    return [first, second];
+  }, [activeIndex, testimonials]);
+
+  const nextTestimonial = () => {
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setActiveIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
 
   return (
     <section
@@ -44,16 +96,16 @@ export default function Testimonials() {
             </div>
 
             <h2 className="max-w-[430px] text-[42px] font-extrabold leading-[1.22] tracking-tight text-white sm:text-[50px] lg:text-[56px] xl:text-[62px]">
-              What They&apos;re Talking About Comapany ?
+              What They&apos;re Talking About Company ?
             </h2>
           </div>
 
           {/* Testimonial Cards */}
           <div className="testimonial-content">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-12">
-              {testimonials.map((testimonial, index) => (
+              {visibleTestimonials.map((testimonial, index) => (
                 <article
-                  key={testimonial.author}
+                  key={`${testimonial.author}-${activeIndex}`}
                   className={`testimonial-card testimonial-delay-${index + 1}`}
                 >
                   {/* Card Box */}
@@ -98,6 +150,7 @@ export default function Testimonials() {
               <button
                 type="button"
                 aria-label="Previous testimonial"
+                onClick={prevTestimonial}
                 className="grid h-[58px] w-[58px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
               >
                 <ChevronLeft className="h-6 w-6" />
@@ -106,6 +159,7 @@ export default function Testimonials() {
               <button
                 type="button"
                 aria-label="Next testimonial"
+                onClick={nextTestimonial}
                 className="grid h-[58px] w-[58px] place-items-center rounded-full border border-white/70 text-white transition duration-300 hover:border-[#ff3f35] hover:bg-[#ff3f35]"
               >
                 <ChevronRight className="h-6 w-6" />
@@ -114,22 +168,28 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Logo Grid / Bottom Strip */}
+        {/* Mission Elements */}
         <div className="testimonial-logos mt-24 border-t border-white/10 pt-16">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
-            {logos.map((logo, index) => (
-              <div
-                key={logo.name}
-                className={`testimonial-logo testimonial-logo-delay-${index + 1} flex flex-col items-center justify-center gap-3 text-center`}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            {missionElements.map((item, index) => (
+              <article
+                key={item.title}
+                className={`testimonial-logo testimonial-logo-delay-${
+                  index + 1
+                } group min-h-[210px] border border-white/10 bg-white/[0.03] p-7 transition duration-500 hover:-translate-y-2 hover:border-[#ff3f35]/70 hover:bg-white/[0.06]`}
               >
-                <div className="grid h-16 w-16 place-items-center rounded-full border border-white/15 text-[15px] font-extrabold text-white/45 transition duration-300 hover:border-[#ff3f35] hover:text-[#ff3f35]">
-                  {logo.initials}
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-[14px] font-extrabold text-white/60 transition duration-300 group-hover:border-[#ff3f35] group-hover:text-[#ff3f35]">
+                  {String(index + 1).padStart(2, "0")}
                 </div>
 
-                <p className="text-[14px] font-medium tracking-[0.04em] text-white/45">
-                  {logo.name}
+                <h3 className="mb-4 text-[20px] font-extrabold leading-tight text-white">
+                  {item.title}
+                </h3>
+
+                <p className="text-[14px] leading-[1.75] text-white/50">
+                  {item.description}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
