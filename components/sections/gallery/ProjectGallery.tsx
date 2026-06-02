@@ -1,6 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export default function ProjectGallery() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
   const galleryItems = [
     {
       id: 1,
@@ -53,8 +59,38 @@ export default function ProjectGallery() {
     },
   ];
 
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(section);
+        }
+      },
+      {
+        threshold: 0.22,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="projects" className="bg-white py-16 md:py-20 lg:py-24">
+    <section
+      ref={sectionRef}
+      id="projects"
+      className={`gallery-section bg-white py-16 md:py-20 lg:py-24 ${
+        isVisible ? "is-visible" : ""
+      }`}
+    >
       <div className="mx-auto max-w-[1210px] px-4 sm:px-6 lg:px-0">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:auto-rows-[250px]">
           {galleryItems.map((item) => (
